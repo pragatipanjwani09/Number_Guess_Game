@@ -17,7 +17,7 @@ def runGuess():
     while True:
         user_guess = int(input("Enter a number between 1 and 100: "))
         hint = giveHint(secretNumber, user_guess)
-        if hint == "Right":
+        if hint == "RIGHT":
             print("You guessed it Right!")
             break
         else:
