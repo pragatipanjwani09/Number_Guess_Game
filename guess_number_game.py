@@ -13,12 +13,15 @@ def giveHint(number, guess):
 
 def runGuess():
     secretNumber = getRandomNumber()
-  
+
+    counter=0
     while True:
         user_guess = int(input("Enter a number between 1 and 100: "))
         hint = giveHint(secretNumber, user_guess)
+        counter +=1 
         if hint == "RIGHT":
             print("You guessed it Right!")
+            print("Attempts: ",counter)
             break
         else:
             print(hint)
