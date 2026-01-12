@@ -1,7 +1,7 @@
 import random
 
-def getRandomNumber():
-    return random.randrange(1, 100)
+def getRandomNumber(maxrange):
+    return random.randint(1,maxrange)
 
 def giveHint(number, guess):
     if guess > (number + 10) or guess < (number - 10):
@@ -12,16 +12,21 @@ def giveHint(number, guess):
         return "HOT"
 
 def runGuess():
-    secretNumber = getRandomNumber()
-
-    counter=0
+    level=input("Choose a level \nEasy: E, Midium: M, Hard: H \nAnswer : ")
+    if level.upper()=="E":
+        maxrange=50
+    elif level.upper()=="M":
+        maxrange=100
+    else :
+        maxrange=150
+    secretNumber = getRandomNumber(maxrange)
+    a=0
     while True:
-        user_guess = int(input("Enter a number between 1 and 100: "))
+        user_guess = int(input(f"Enter a number between 1 and {maxrange} : "))
         hint = giveHint(secretNumber, user_guess)
-        counter +=1 
+        a +=1
         if hint == "RIGHT":
-            print("You guessed it Right!")
-            print("Attempts: ",counter)
+            print("You guessed it Right! Attempts: ",a)
             break
         else:
             print(hint)
@@ -40,4 +45,4 @@ print("iii) If the guess is greater by 10 or lesser by 10  - COLD")
 print("\n")
 
 if __name__ == '__main__':
-    runGuess()
+    main()
