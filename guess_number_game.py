@@ -26,6 +26,13 @@ def runGuess():
         else:
             print(hint)
 
+def main():
+    while True:
+        runGuess()
+        ask=input("Want to play again? (Yes/No) :")
+        if ask.lower()=="no":
+            break
+
 print("!!! RULES !!!")
 print("i) If the guess matches the secret number  - RIGHT")
 print("ii) If the guess is within ±10 of the secret number  - HOT")
